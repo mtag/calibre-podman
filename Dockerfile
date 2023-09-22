@@ -4,5 +4,5 @@ RUN apt-get update && \
     apt-get autoremove --yes && apt-get clean autoclean && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 WORKDIR /root
-CMD ["/bin/sh"]
+CMD ["/usr/bin/calibre"]
 
