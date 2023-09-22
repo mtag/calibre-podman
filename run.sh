@@ -5,6 +5,7 @@ CALIBRE_CONF=~/.config/calibre
 # thanks for [Huisin](https://nnt339es.hatenablog.com/entry/2022/04/30/013450)
 CALIBRE_HOME=/root
 #xhost +local:
+IMAGE_NAME=calibre:latest
 EXT_OPTS=
 if [ ! -z "$1" ]; then
 	EXT_OPTS="-v $1:/incoming/"
@@ -18,5 +19,4 @@ podman run --rm \
        -v "${CALIBRE_CONF}":${CALIBRE_HOME}/.config/calibre/ \
        --mount type=bind,src=$HOME/.Xauthority,dst=/root/.Xauthority \
        -e DISPLAY=$DISPLAY \
-       calibre \
-       /usr/bin/calibre
+       ${IMAGE_NAME} 
